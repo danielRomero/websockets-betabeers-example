@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  encoding: utf-8
+  database: websockets_betabeers_example_development
+  pool: 5
+  username: 'daniel'
+  password: ''
