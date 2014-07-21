@@ -32,6 +32,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # bootstrap framework
 gem 'bootstrap-sass'
 

@@ -1,0 +1,2 @@
+module ChatSocketHelper
+end

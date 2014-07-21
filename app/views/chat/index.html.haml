@@ -9,7 +9,9 @@
       Enviar
     .btn.btn-success.btn-block.visible-lg
       Enviar
-
+  #connected_users_count.text-right
+    %small
+      0 usuarios conectados
   .panel.panel-primary
     #accordion.panel-heading
       .input-group
@@ -26,3 +28,15 @@
         %span.input-group-btn
           %button#btn-chat.btn.btn-warning.btn-sm
             Enviar
+  .text-right
+    %small
+      Gracias a
+      %span
+        =link_to('simolation', 'http://bootsnipp.com/Simolation')
+      por el 
+      %span
+        =link_to('snippet', 'http://bootsnipp.com/snippets/featured/collapsible-chat-widget')
+      de Bootstrap
+:javascript
+  window.websocketsExample.init("#{DOMINIO}");
+  window.websocketsExample.start("daniel");
