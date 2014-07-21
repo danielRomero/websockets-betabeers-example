@@ -32,7 +32,8 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'bootstrap'
+# bootstrap framework
+gem 'bootstrap-sass'
 
 gem 'websocket-rails'
 

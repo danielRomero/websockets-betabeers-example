@@ -1,0 +1,28 @@
+%h1.text-center Chat con WebSockets
+.col-xs-12.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
+  -#
+    .btn.btn-success.btn-block.btn-xs.visible-xs
+      Enviar
+    .btn.btn-success.btn-block.btn-sm.visible-sm
+      Enviar
+    .btn.btn-success.btn-block.btn-md.visible-md
+      Enviar
+    .btn.btn-success.btn-block.visible-lg
+      Enviar
+
+  .panel.panel-primary
+    #accordion.panel-heading
+      .input-group
+        .input-group-addon
+          .glyphicon.glyphicon-comment
+        =text_field_tag 'name', '', placeholder: 'Elige un nombre chulo', class: 'form-control input-sm', required: true
+    .panel-body
+      %ul.chat
+        -for i in (0..10)
+          =render 'message'
+    .panel-footer
+      .input-group
+        =text_field_tag 'message', '', placeholder: 'Escribe un mensaje original', class: 'form-control input-sm', required: true
+        %span.input-group-btn
+          %button#btn-chat.btn.btn-warning.btn-sm
+            Enviar

@@ -1,7 +1,3 @@
--# app/views/layouts/application.html.haml
-
--# Jam in a flash[:notice] so that we can see the flash rendering in effect
-- flash[:notice] = "This is a test"
 !!!
 %html
   %head
@@ -10,18 +6,22 @@
     %meta{:content => content_for?(:description) ? yield(:description) : "App_Name", :name => "description"}
     = stylesheet_link_tag :application, :media => "all"
     = javascript_include_tag :application
+    %link{href: "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", rel: "stylesheet"}/
     = csrf_meta_tags
     = yield(:head)
   %body
     %header.navbar.navbar-fixed-top.navbar-inverse
       %nav.navbar-inner
         .container
-      %a.brand{:href => "/"} Our First HTML5 haml example
-    #main{:role => "main"}
+      %a.brand{:href => root_path} Our First HTML5 haml example
+    #main
       .container
         .content
           .row
-            .span12
-              = render 'layouts/messages'
-              = yield
+            .col-xs-12.col-sm-12.col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
+              #application_flashes
+                = render 'layouts/messages'
+            .col-xs-12.col-sm-12.col-md-12.col-lg-12
+              #application_content
+                = yield
           %footer

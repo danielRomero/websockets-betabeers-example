@@ -1,6 +1,9 @@
 -# app/views/layouts/_messages.html.haml
-- flash.each do |name, msg|
-  - if msg.is_a?(String)
-    %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
-      %a.close{"data-dismiss" => "alert"} ×
-      = content_tag :div, msg, :id => "flash_#{name}"
+.flashes_container
+  - flash.each do |name, msg|
+    - if msg.is_a?(String)
+      .alert-dismissible{:class => "alert alert-#{name.to_sym == :notice ? "success" : "danger"}"}
+        %a.close{"data-dismiss" => "alert"} ×
+        = content_tag :div, msg, :id => "flash_#{name}"
+  :javascript
+    setTimeout( "jQuery('.flashes_container').slideUp('fast', function(){$(this).remove();});", 3000 );
