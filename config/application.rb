@@ -7,7 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 if Rails.env == 'production'
-    DOMINIO = 'http://wesockets-betabeers-example.herokuapp.com/'
+    DOMINIO = 'wesockets-betabeers-example.herokuapp.com/'
 else
     DOMINIO = 'localhost:3000/'
 end

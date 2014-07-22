@@ -1,33 +1,28 @@
 %h1.text-center Chat con WebSockets
 .col-xs-12.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
-  -#
-    .btn.btn-success.btn-block.btn-xs.visible-xs
-      Enviar
-    .btn.btn-success.btn-block.btn-sm.visible-sm
-      Enviar
-    .btn.btn-success.btn-block.btn-md.visible-md
-      Enviar
-    .btn.btn-success.btn-block.visible-lg
-      Enviar
-  #connected_users_count.text-right
+  .text-right
     %small
-      0 usuarios conectados
+      %span#connected_users_count
+        0
+      usuarios conectados
   .panel.panel-primary
     #accordion.panel-heading
       .input-group
         .input-group-addon
           .glyphicon.glyphicon-comment
-        =text_field_tag 'name', '', placeholder: 'Elige un nombre chulo', class: 'form-control input-sm', required: true
+        =text_field_tag 'name_input', '', placeholder: 'Elige un nombre chulo', class: 'form-control input-sm', required: true, onkeyup: "window.websocketsExample.enable_to_send();"
+        %span.input-group-btn
+          #btn_connect_chat.btn.btn-warning.btn-sm.disabled{onclick: "window.websocketsExample.start()"}
+            Conectar
     .panel-body
-      %ul.chat
-        -for i in (0..10)
-          =render 'message'
+      %ul.chat#chat_messages_index
     .panel-footer
       .input-group
-        =text_field_tag 'message', '', placeholder: 'Escribe un mensaje original', class: 'form-control input-sm', required: true
+        =text_field_tag 'message_input', '', placeholder: 'Escribe un mensaje original', class: 'form-control input-sm', required: true, disabled: true
         %span.input-group-btn
-          %button#btn-chat.btn.btn-warning.btn-sm
+          #btn_send_chat.btn.btn-warning.btn-sm.disabled{onclick: "window.websocketsExample.send_message($('#message_input').val())"}
             Enviar
+  %small#message_status
   .text-right
     %small
       Gracias a
@@ -39,4 +34,3 @@
       de Bootstrap
 :javascript
   window.websocketsExample.init("#{DOMINIO}");
-  window.websocketsExample.start("daniel");
