@@ -51,6 +51,8 @@ window.websocketsExample.new_message_received = (response) ->
       <hr>
     </li>"
   )
+  # hago scroll hasta este último mensaje
+  $('li.left.clearfix.message')[$('li.left.clearfix.message').length -1 ].scrollIntoView();
 
 # Callback cuando me he conectado
 window.websocketsExample.connection_success = (response) ->
