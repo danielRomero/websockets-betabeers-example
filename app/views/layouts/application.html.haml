@@ -2,11 +2,12 @@
 %html
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
-    %title= content_for?(:title) ? yield(:title) : "App_Name"
-    %meta{:content => content_for?(:description) ? yield(:description) : "App_Name", :name => "description"}
+    %title= content_for?(:title) ? yield(:title) : "Websockets chat example"
+    %meta{:content => content_for?(:description) ? yield(:description) : "Ejemplo de aplicación construida con Ruby on Rails en la que se implementa un chat utilizando websockets. Desarrollada por Daniel Romero @danielRomeroE. Web app example of chat made with websockets and ruby on rails by Daniel Romero @danielRomeroE", :name => "description"}
     = stylesheet_link_tag :application, :media => "all"
     = javascript_include_tag :application
     %link{href: "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", rel: "stylesheet"}/
+    %link{href: "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css", rel: "stylesheet"}/
     = csrf_meta_tags
     = yield(:head)
   %body
