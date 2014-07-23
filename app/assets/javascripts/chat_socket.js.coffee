@@ -82,7 +82,7 @@ window.websocketsExample.connection_success = (response) ->
 
 # Callback cuando un usuario se ha desconectado
 window.websocketsExample.users_count_changed = (response) ->
-  $('#connected_users_count').html(response.users_count)
+  $('#connected_users_count').html("#{response.users_count} usuarios conectados")
 
 ############## ENVÍO DE MENSAJES ####################
 # Envía un mensaje de chat al servidor
